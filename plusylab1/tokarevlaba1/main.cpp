@@ -13,21 +13,21 @@ using namespace std;
 
 struct Pipe
 {
-    string name;    // километровая отметка (название)
-    double length;  // длина, км
-    int diameter;   // диаметр, мм
-    bool inRepair;  // признак "в ремонте"
+    string name;    
+    double length;  
+    int diameter;  
+    bool inRepair;  
 };
 
 struct CompressorStation
 {
-    string name;          // название
-    int workshopCount;    // всего цехов
-    int workshopWorking;  // цехов в работе
-    int stationClass;     // класс станции
+    string name;         
+    int workshopCount;    
+    int workshopWorking;  
+    int stationClass;     
 };
 
-// ---------- безопасный ввод ----------
+
 
 string readLine()
 {
@@ -48,7 +48,7 @@ bool isBlank(const string& text)
     return true;
 }
 
-// Строка должна содержать ровно одно число и ничего лишнего
+
 template <typename T>
 bool parseNumber(const string& text, T& value)
 {
@@ -86,7 +86,7 @@ string readName(const string& prompt)
     }
 }
 
-// ---------- труба ----------
+//труба 
 
 Pipe readPipe()
 {
@@ -114,7 +114,7 @@ void editPipe(Pipe& pipe)
     cout << "Признак изменён.\n";
 }
 
-// ---------- компрессорная станция ----------
+
 
 CompressorStation readStation()
 {
@@ -163,7 +163,7 @@ void editStation(CompressorStation& station)
     }
 }
 
-// ---------- файл ----------
+
 
 bool saveToFile(const string& fileName, bool hasPipe, const Pipe& pipe,
                 bool hasStation, const CompressorStation& station)
@@ -186,7 +186,7 @@ bool saveToFile(const string& fileName, bool hasPipe, const Pipe& pipe,
     return file.good();
 }
 
-// Читает строку из файла как число из диапазона
+
 template <typename T>
 bool readFromFile(ifstream& file, T& value, T minValue, T maxValue)
 {
@@ -223,7 +223,7 @@ bool loadStation(ifstream& file, CompressorStation& station)
     return true;
 }
 
-// Текущие данные меняются только если весь файл корректен
+
 bool loadFromFile(const string& fileName, bool& hasPipe, Pipe& pipe,
                   bool& hasStation, CompressorStation& station)
 {
@@ -251,7 +251,7 @@ bool loadFromFile(const string& fileName, bool& hasPipe, Pipe& pipe,
     return true;
 }
 
-// ---------- меню ----------
+// менюшка 
 
 void printMenu()
 {
